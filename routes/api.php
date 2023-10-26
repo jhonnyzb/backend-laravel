@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HotelController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,5 +20,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('/greeting', function () {
-    return 'Hello World';
+    return 'Hello Worldddd';
+});
+
+Route::prefix('admin-hotels')->group(function () {
+    // Public routes
+    Route::post('create-hotel', [HotelController::class, 'createHotel']);
+    Route::get('hotels', [HotelController::class, 'getHotels']);
+
 });
