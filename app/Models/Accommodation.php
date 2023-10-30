@@ -6,13 +6,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-class TypeRoom extends Model
+class Accommodation extends Model
 {
     use HasFactory;
-    protected $table = 'types_room';
+    protected $table = 'accommodation';
 
-    public function hotels(): BelongsToMany
+    public function types(): BelongsToMany
     {
-        return $this->belongsToMany(Hotel::class, 'hotels_types_room');
+        return $this->belongsToMany(Type::class, 'types');
     }
 }

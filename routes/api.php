@@ -25,7 +25,10 @@ Route::get('/greeting', function () {
 
 Route::prefix('admin-hotels')->group(function () {
     // Public routes
-    Route::post('create-hotel', [HotelController::class, 'createHotel']);
     Route::get('hotels', [HotelController::class, 'getHotels']);
+    Route::get('get-types-accommodation', [HotelController::class, 'getTypesAccommodation']);
+    Route::post('create-hotel', [HotelController::class, 'createHotel']);
+    Route::post('add-rooms', [HotelController::class, 'addRooms']);
+
 
 });

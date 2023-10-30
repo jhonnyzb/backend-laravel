@@ -13,7 +13,14 @@ return new class extends Migration
     {
         Schema::create('types_accommodation', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
+            $table->bigInteger('type_id');
+            $table->foreign('type_id')
+                ->references('id')
+                ->on('types')->onDelete('cascade');
+            $table->bigInteger('accommodation_id');
+            $table->foreign('accommodation_id')
+                ->references('id')
+                ->on('accommodation')->onDelete('cascade');
             $table->timestamps();
         });
     }
